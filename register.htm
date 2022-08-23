@@ -1,0 +1,21 @@
+
+{%extends 'testapp/base.htm'%}
+{%load staticfiles %}
+{%block body_block%}
+<h1>Customer Register</h1>
+<form method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6">
+        <table class="table">
+        {%csrf_token%}
+        {{form.as_table}}
+        </table>
+    
+    <input type="submit" value="Register" class="btn btn-primary"/>
+        </div>
+
+        <img src="{%static 'images/vivek.jpg' %}" style="width: 500px; height: 500px;">
+    </div>
+    
+</form>
+{%endblock%}

@@ -1,0 +1,32 @@
+{%extends 'testapp/adminbase.htm'%}
+{%block body_block%}
+<h1>All Videos</h1>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Video</th>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Brand</th>
+        
+            <th>Options</th>
+        
+    </tr>
+    {%for e in videos%}
+    <tr>
+        <td>{{e.id}}</td>
+        <th>
+            <video  controls="true" style="width: 80px; height: 80px;"  >
+                <source src="{{e.videos.url}}" alr={{e.videos.url}} />
+            </video>
+        </th>
+        <td>{{e.title}}</td>
+        <td>{{e.pdate}}</td>
+        <td>{{e.brand}}</td>
+       
+        <td><a href="/v_update/{{e.id}}" class="btn btn-success">Update</a> | <a href="/v_delete/{{e.id}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+{%endblock%}

@@ -1,0 +1,32 @@
+{%extends 'testapp/adminbase.htm'%}
+{%block body_block%}
+<h1>All Customers</h1>
+<table class="table">
+    <tr>
+        <th>Uid</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Options</th>
+        
+    </tr>
+    {%for e in cus%}
+    <tr>
+        <td>{{e.uid}}</td>
+        <th><img src="{{e.pics.url}}" alt="{{e.pics.url}}" style="width: 50px; height: 50px;"></th>
+        <td>{{e.name}}</td>
+        <td>{{e.dob}}</td>
+        <td>{{e.gender}}</td>
+        
+        <td>{{e.email}}</td>
+        <td>{{e.mobile}}</td>
+        <td><a href="/update/{{e.id}}" class="btn btn-success">Update</a> | <a href="/delete/{{e.id}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+{%endblock%}

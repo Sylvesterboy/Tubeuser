@@ -1,0 +1,54 @@
+{%extends 'testapp/adminbase.htm'%}
+{%block body_block%}
+<h1>Update Videos Information</h1>
+<form method="POST" enctype="multipart/form-data">
+    
+    {%csrf_token%}
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+            
+                <tr>
+                    <td> Title</td>
+                    <td><input type="text" name="title" value="{{v.title}}" class="form-control"/></td>
+
+                </tr>
+                <tr>
+                    <td> Category</td>
+                    <td><input type="text" name="category" value="{{v.category}}" class="form-control"/></td>
+
+                </tr>
+                <tr>
+                    <td> Brand</td>
+                    <td><input type="text" name="brand" value="{{v.brand}}" class="form-control"/></td>
+
+                </tr>
+                <tr>
+                    <td>Duration</td>
+                    <td><input type="text" name="pdate" value="{{v.pdate}}" class="form-control"/></td>
+                </tr>
+               
+                <tr>
+                    <td>Update</td>
+                    <td>
+                            <input type="file" name="videos" class="form-control" value="{{v.videos}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Update Information" class="btn btn-success"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <video  controls="true" style="width: 280px; height: 280px;"  >
+                <source src="{{v.videos.url}}" alr={{v.videos.url}} />
+            </video>
+            <br>
+            
+        </div>
+    </div>
+</form>
+
+{%endblock%}
